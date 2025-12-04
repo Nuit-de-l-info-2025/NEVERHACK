@@ -9,13 +9,12 @@
 }
 
 body {
-  width: 200px;
+  width: 300px;
   padding: 15px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: var(--transition);
-  text-align: center;
 }
 
 body.dark {
@@ -23,37 +22,85 @@ body.dark {
   color: var(--text-color-dark);
 }
 
-h1 {
-  font-size: 1.3em;
-  margin: 0 0 15px 0;
+.header {
+  display: flex;
+  justify-content: flex-start; /* Aligne les éléments à gauche */
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 100px; /* Espace de 10px entre le titre et le logo */
+}
+
+.header h1 {
+  font-size: 2.0em; /* Titre plus grand */
+  margin: 0;
   color: var(--primary-color);
 }
 
+.logo {
+  width: 100px; /* Taille du logo */
+  height: auto;
+}
+
+/* Bouton et résultats (inchangé) */
 #resumeButton {
   background-color: var(--primary-color);
   color: white;
   border: none;
-  padding: 10px;
+  padding: 12px;
   border-radius: var(--border-radius);
-  font-size: 1em;
+  font-size: 1.5em;
   cursor: pointer;
   width: 100%;
   transition: var(--transition);
 }
 
 #resumeButton:hover {
+  background-color: #352bc3;
+}
+
+.results {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: var(--border-radius);
+  background-color: rgba(108, 99, 255, 0.1);
+  border: 1px solid var(--primary-color);
+}
+
+body.dark .results {
+  background-color: rgba(108, 99, 255, 0.2);
+}
+
+.results h2 {
+  margin: 0 0 8px 0;
+  font-size: 1.1em;
+}
+
+.results-content {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 8px;
+  background-color: white;
+  border-radius: 4px;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+body.dark .results-content {
+  background-color: #333;
+  color: var(--text-color-dark);
+}
+
+.copy-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  font-size: 0.9em;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.copy-button:hover {
   opacity: 0.9;
 }
-
-.logo-container {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.logo {
-  width: 60px; /* Ajuste la taille selon ton logo */
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-

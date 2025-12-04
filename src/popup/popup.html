@@ -7,17 +7,19 @@
 </head>
 <body>
   <div class="container">
-    <!-- Ajout du logo -->
-    <div class="logo-container">
-      <img src="icons/logo.png" alt="inResume Logo" class="logo">
-    </div>
-    <h1>inResume</h1>
+    <!-- En-tête avec logo et titre -->
+    <header class="header">
+      <h1>inResume</h1>
+      <img src="icons/logo.png" alt="Logo" class="logo">
+    </header>
+
     <form id="scrapeForm">
       <button type="submit" id="resumeButton">
         <span class="button-text">Résumer</span>
         <span class="button-loading" hidden>⏳</span>
       </button>
     </form>
+
     <div id="results" class="results" hidden>
       <h2>Résumé :</h2>
       <div class="results-content">En attente du résumé...</div>
