@@ -5,5 +5,8 @@
   "manifest_version": 3,
   "action": {
     "default_popup": "./popup/popup.html"
-  }
+  },
+  "host_permissions": [
+    "https://generativelanguage.googleapis.com/*"
+  ]
 }
