@@ -8,5 +8,10 @@
     "default_icon": {
       "16": "popup/icons/logo.png"
     }
+  },
+  "icons": {
+    "16": "popup/icons/logo.png",
+    "48": "popup/icons/logo.png",
+    "128": "popup/icons/logo.png"
   }
 }
