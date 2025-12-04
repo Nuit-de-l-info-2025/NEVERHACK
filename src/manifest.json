@@ -8,5 +8,8 @@
     "default_icon": {
       "16": "popup/icons/logo.png"
     }
-  }
+  },
+  "host_permissions": [
+    "https://generativelanguage.googleapis.com/*"
+  ]
 }
