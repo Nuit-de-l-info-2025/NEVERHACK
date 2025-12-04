@@ -1,15 +1,27 @@
 {
   "name": "inResume",
-  "description": "inResume est une extension Chrome basée sur Manifest V3 qui permet de résumer instantanément n’importe quelle page web grâce à l’intelligence artificielle.",
+  "description": "inResume est une extension Chrome basée sur Manifest V3 qui permet de résumer instantanément n'importe quelle page web grâce à l'intelligence artificielle.",
   "version": "0.1",
   "manifest_version": 3,
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "https://generativelanguage.googleapis.com/*"
+  ],
   "action": {
     "default_popup": "./popup/popup.html",
     "default_icon": {
       "16": "popup/icons/logo.png"
     }
   },
-  "host_permissions": [
-    "https://generativelanguage.googleapis.com/*"
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["./content/content.js"]
+    }
   ]
 }
