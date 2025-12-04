@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mon Extension</title>
+  <meta charset="UTF-8">
+  <title>inResume</title>
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
   <div class="container">
-    <h1>Scraper</h1>
-    <button id="scrapeButton">Lancer le scraping</button>
+    <!-- Ajout du logo -->
+    <div class="logo-container">
+      <img src="icons/logo.png" alt="inResume Logo" class="logo">
+    </div>
+    <h1>inResume</h1>
+    <form id="scrapeForm">
+      <button type="submit" id="resumeButton">
+        <span class="button-text">Résumer</span>
+        <span class="button-loading" hidden>⏳</span>
+      </button>
+    </form>
+    <div id="results" class="results" hidden>
+      <h2>Résumé :</h2>
+      <div class="results-content">En attente du résumé...</div>
+      <button id="copyButton" class="copy-button" hidden>Copier</button>
+    </div>
   </div>
   <script src="popup.js"></script>
 </body>
