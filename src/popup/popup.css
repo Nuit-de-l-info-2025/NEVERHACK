@@ -104,3 +104,19 @@ body.dark .results-content {
 .copy-button:hover {
   opacity: 0.9;
 }
+
+.feedback-message {
+    position: fixed; /* Reste en place par rapport à la fenêtre du navigateur */
+    top: 10px;       /* Place le message à 10px du haut */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50; 
+    color: white;
+    padding: 8px 15px;
+    border-radius: 4px;
+    z-index: 99999; /* Très haut pour être au-dessus de tout sur la page */
+    font-size: 14px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Ajouter une transition pour une meilleure apparence */
+    transition: opacity 0.3s ease-in-out;
+}
