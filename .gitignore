@@ -1,0 +1,40 @@
+# --- Environment variables ---
+.env
+.env.local
+.env.development
+.env.production
+.env.*.local
+
+# --- Node / Package managers (si un jour tu ajoutes un bundler) ---
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# --- Build outputs ---
+dist/
+build/
+out/
+
+# --- Chrome Extension temporary files ---
+*.pem
+
+# --- OS-specific files ---
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# --- IDEs ---
+.vscode/
+.idea/
+*.swp
+
+# --- Archives ---
+*.zip
+*.tar
+*.tar.gz
+
+# --- Misc ---
+# Prévention des fichiers temporaires / backup
+*~
+*.tmp
