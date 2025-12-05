@@ -1,5 +1,7 @@
 let search_resume = async (text) => {
-    const GEMINI_API_KEY = "AIzaSyCEj9Y-mYWJL2GahscyEIWsf8gMoFZkuZY"
+    console.log(text);
+
+    const GEMINI_API_KEY = "AIzaSyBj7u-uY1kJYpJO7-sqnWUD_Vxy_hOwow8"
 
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 5000);
@@ -11,32 +13,37 @@ let search_resume = async (text) => {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    contents: [{ parts: [{ text: "Fais moi un résumé de ce texte : " + text }] }],
+                    contents: [{ parts: [{ text: "u es un expert en résumé concis. Réalise un résumé professionnel, clair et factuel du JSON suivant. Règles de longueur strictes : 1. Le résumé complet ne doit jamais dépasser 2000 caractères en comptant les espaces. 2. Réponds uniquement avec le texte du résumé, sans préambule, titre, ou conclusion additionnelle. 3. Ne fais pas en markdown. " + text }] }],
                 }),
             }
         );
 
         const data = await response.json();
 
+        console.log(data);
+
         const candidates = Array.isArray(data?.candidates) ? data.candidates : [];
-        if (candidates.length === 0) return "Erreur : pas de résumé";
+        if (candidates.length === 0) {
+            console.log("first one");
+            return "Erreur : pas de résumé";
+        }
 
         const candidate = candidates[0];
 
-        const contents = Array.isArray(candidate?.content) ? candidate.content : [];
-        if (contents.length === 0) return "Erreur : pas de résumé";
+        const parts = candidate.content?.parts;
+        if (!parts || parts.length === 0) {
+            console.log("second one: no parts found");
+            return "Erreur : pas de résumé (contenu vide ou bloqué)";
+        }
 
-        let summary = contents.map(c => {
-            const parts = Array.isArray(c?.parts) ? c.parts : [];
-            return parts.map(p => p?.text || "").join("");
-        }).join("\n");
+        let summary = parts.map(p => p?.text || "").join("\n");
 
         if (!summary.trim()) summary = "Erreur : pas de résumé";
 
         return summary;
 
     } catch (error) {
-        if (error.name === "AbortError") console.warn("Request timed out");
+        if (error.name === "AbortError") console.error("Request timed out");
         else console.error(error);
     } finally {
         clearTimeout(timeout);

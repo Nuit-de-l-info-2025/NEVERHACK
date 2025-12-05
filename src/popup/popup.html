@@ -9,8 +9,8 @@
             <div class="container">
                 <!-- En-tête avec logo et titre -->
                 <header class="header">
-                <h1>inResume</h1>
-                <img src="icons/logo.png" alt="Logo" class="logo">
+                    <h1>inResume</h1>
+                    <img src="icons/logo.png" alt="Logo" class="logo">
                 </header>
 
                 <form id="scrapeForm">
@@ -23,10 +23,13 @@
                 <div id="results" class="results" hidden>
                 <h2>Résumé :</h2>
                 <div class="results-content">En attente du résumé...</div>
-                <button id="copyButton" class="copy-button" hidden>Copier</button>
+                <div class="button-container">
+                    <button id="showButton" class="show-button" hidden>Voir plus</button>
+                    <button id="copyButton" class="copy-button" hidden>Copier</button>
+                </div>
                 </div>
             </div>
             <div id="copyFeedback" class="feedback-message" hidden> Résumé copié dans le presse-papiers. </div>
-            <script src="popup.js"></script>
+            <script type="module" src="./popup.js"></script>
         </body>
     </html>
