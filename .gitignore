@@ -23,6 +23,7 @@ out/
 .DS_Store
 Thumbs.db
 Desktop.ini
+*.mp4
 
 # --- IDEs ---
 .vscode/
